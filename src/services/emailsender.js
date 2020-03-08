@@ -1,15 +1,15 @@
 import { transporter } from '../config/nodemailer-config';
 
-const SendMail = (contact) => {
+const SendMail = ({ email, subject, content, name }) => {
 	const msg = {
-		from: `${contact.email}`,
+		from: `${email}`,
 		to: 'tueloper@gmail.com',
-		subject: `${contact.subject}`,
+		subject: `${subject}`,
 		html: `
 			 <html>
-      <h3>From ${contact.name}</h3>
+      <h3>From ${name} with email ${email}</h3>
         <div style="font-size: 20px; margin-top: 30px; font-family: 'cursive">
-          <p>${contact.content}</p>
+          <p>${content}</p>
         </div>
     </html>
 		`
@@ -17,7 +17,7 @@ const SendMail = (contact) => {
 
 	transporter.sendMail(msg, (error, info) => {
 		if (error) {
-			return 'error sending verification';
+			return 'error sending contact mail';
 		}
 		console.log(`Email sent: ${info.response}`);
 	});
