@@ -28,7 +28,7 @@ dotenv.config();
 export const options = {
 	host: `${process.env.EMAIL_HOST}`,
 	port: `${process.env.EMAIL_PORT}`,
-	// secure: true, // true for 465, false for other ports
+	secure: true, // true for 465, false for other ports
 	auth: {
 		user: `${process.env.EMAIL_ID}`,
 		pass: `${process.env.EMAIL_PASS}`
