@@ -17,6 +17,7 @@ const SendMail = ({ email, subject, content, name }) => {
 
 	transporter.sendMail(msg, (error, info) => {
 		if (error) {
+			console.log(error);
 			return 'error sending contact mail';
 		}
 		console.log(`Email sent: ${info.response}`);

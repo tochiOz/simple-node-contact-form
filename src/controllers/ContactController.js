@@ -24,6 +24,7 @@ const ContactController = {
 			await sendMail(contact.dataValues);
 			return sendSuccessResponse(res, 200, contact);
 		} catch (e) {
+			console.log(e);
 			return next(e);
 		}
 	}
